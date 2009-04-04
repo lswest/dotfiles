@@ -1,0 +1,43 @@
+URxvt.perl-ext-common: default,matcher
+URxvt.urlLauncher: firefox
+URxvt.matcher.button: 1
+urxvt*termName: rxvt-unicode
+urxvt*internalBorder:   1
+urxvt*loginShell: true
+urxvt*background:  rgba:0000/0000/0000/cccc
+urxvt*background: [70]#000000
+urxvt*foreground:  white
+urxvt*transparent: 1
+urxvt*colorMode: on
+urxvt*cursorBlink: 0
+urxvt*depth:	32
+urxvt*color0:      #000000
+urxvt*color1:      #9e1828
+urxvt*color2:      #aece92
+urxvt*color3:      #968a38
+urxvt*color4:      #414171
+urxvt*color5:      #963c59
+urxvt*color6:      #418179
+urxvt*color7:      #bebebe
+urxvt*color8:      #666666
+urxvt*color9:      #cf6171
+urxvt*color10:     #c5f779
+urxvt*color11:     #fff796
+urxvt*color12:     #4186be
+urxvt*color13:     #cf9ebe
+urxvt*color14:     #71bebe
+urxvt*color15:     #ffffff
+urxvt*fading:    40
+urxvt*tintColor: white
+urxvt*shading:   0
+urxvt*inheritPixmap: 0
+urxvt*scrollBar: 0
+urxvt*geometry: 81x22
+urxvt*saveLines:1000
+urxvt*font: xft:DejaVu Sans Mono:pixelsize=11:antialias=true:hinting=true
+urxvt*boldFont: xft:DejaVu Sans Mono:pixelsize=11:antialias=true:bold:hinting=true
+urxvt*italicFont: xft:DejaVu Sans Mono:pixelsize=11:antialias=true:italic:autohint=true:hinting=true
+urxvt*bolditalicFont: xft:DejaVu Sans Mono:pixelsize=11:antialias=true:bold:italic:autohint=true:hinting=true
+
+Xcursor.theme: Vanilla-DMZ-AA
+Xcursor.size: 16

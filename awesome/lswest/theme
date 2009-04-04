@@ -1,0 +1,66 @@
+---------------------------
+-- Default awesome theme --
+---------------------------
+
+font          = sans 8
+
+bg_normal     = #222222
+bg_focus      = #535d6c
+bg_urgent     = #ff0000
+bg_minimize   = #444444
+
+fg_normal     = #aaaaaa
+fg_focus      = #ffffff
+fg_urgent     = #ffffff
+fg_minimize  =  #ffffff
+
+border_width  = 1
+border_normal = #000000
+border_focus  = #535d6c
+border_marked = #91231c
+
+# There are another variables sets
+# overriding the default one when
+# defined, the sets are:
+# [taglist|tasklist]_[bg|fg]_[focus|urgent]
+# titlebar_[bg|fg]_[normal|focus]
+# Example:
+#taglist_bg_focus = #ff0000
+
+# Display the taglist squares
+taglist_squares_sel = /home/lswest/.config/awesome/lswest/taglist/squarefw.png
+taglist_squares_unsel = /home/lswest/.config/awesome/lswest/taglist/squarew.png
+
+tasklist_floating_icon = /home/lswest/.config/awesome/lswest/tasklist/floatingw.png
+
+# Variables set for theming menu
+# menu_[bg|fg]_[normal|focus]
+# menu_[border_color|border_width]
+menu_submenu_icon = /home/lswest/.config/awesome/lswest/submenu.png
+menu_height   = 15
+menu_width    = 100
+
+# You can add as many variables as
+# you wish and access them by using
+# beautiful.variable in your rc.lua
+#bg_widget    = #cc0000
+
+# Define the image to load
+titlebar_close_button_normal = /home/lswest/.config/awesome/lswest/titlebar/close.png
+titlebar_close_button_focus = /home/lswest/.config/awesome/lswest/titlebar/closer.png
+
+# You can use your own command to set your wallpaper
+wallpaper_cmd = awsetbg "/home/lswest/Pictures/Hyperion/Wallpapers/GIMP'd/shattered ice2.jpg"
+
+# You can use your own layout icons like this:
+layout_fairh = /home/lswest/.config/awesome/lswest/layouts/fairhw.png
+layout_fairv = /home/lswest/.config/awesome/lswest/layouts/fairvw.png
+layout_floating = /home/lswest/.config/awesome/lswest/layouts/floatingw.png
+layout_magnifier = /home/lswest/.config/awesome/lswest/layouts/magnifierw.png
+layout_max = /home/lswest/.config/awesome/lswest/layouts/maxw.png
+layout_tilebottom = /home/lswest/.config/awesome/lswest/layouts/tilebottomw.png
+layout_tileleft = /home/lswest/.config/awesome/lswest/layouts/tileleftw.png
+layout_tile = /home/lswest/.config/awesome/lswest/layouts/tilew.png
+layout_tiletop = /home/lswest/.config/awesome/lswest/layouts/tiletopw.png
+
+awesome_icon = /usr/share/awesome/icons/awesome16.png
