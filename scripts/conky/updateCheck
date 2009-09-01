@@ -1,0 +1,24 @@
+#!/usr/bin/env python
+#A program to check if there are any updates available for Arch
+from subprocess import Popen,PIPE
+import os
+
+def main():
+    p=Popen("pacman -Qu",shell=True,stdout=PIPE)
+    x=p.stdout.readline()
+    if x == "":
+        tally=0
+    else:
+        tally=1
+    while(x != ""):
+        tally=tally+1
+        x=p.stdout.readline()
+    if int(tally) == 1:
+        print "1 package to update"
+    elif int(tally) >= 1:
+        print "%s packages to update" % str(tally)
+    else:
+        print "No packages to update"
+
+if __name__ == '__main__':
+    main()
