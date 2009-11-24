@@ -1,0 +1,23 @@
+# Screenrc - Screen config file
+# Author: Lswest
+# Created: 24-11-2009 16:08:50
+#
+#
+
+# General Settings
+
+startup_message off                # Disable startup message
+vbell off                          # Don't be annoying
+defutf8 on                         # Always use utf8
+
+# Hardstatus
+
+backtick 10 1 300 "/usr/bin/updateCheck" # List number of available updates
+
+# 0 Zsh   1 IRC           --INSERT--  No Packages to Update
+hardstatus alwayslastline "%{= dd}%-w%{+u}%n %t%{-}%+w %=%{= dW}%h%{-}%20`%10`"
+
+# autostart screen sessions
+screen -t Zsh 0 /bin/zsh
+screen -t IRC 1 /usr/bin/irssi
+#

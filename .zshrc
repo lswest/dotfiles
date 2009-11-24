@@ -112,7 +112,7 @@ fi
 flvmp3() {
       ffmpeg -i $1 -ar 44100 -ab 192k -ac 2 $2
 }
-
+export EDITOR="vim"
 export BROWSER="firefox"
 #Google from CLI
 # go to google for anything
