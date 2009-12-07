@@ -1,3 +1,4 @@
+imlib_cache_size 15
 background no
 use_xft yes
 xftfont DejaVuSans:size=8
@@ -17,7 +18,7 @@ draw_outline no
 draw_borders no
 draw_graph_borders no
 stippled_borders 0
-border_margin 1
+border_inner_margin 1
 border_width 1
 default_color ffffff ##0b093a
 default_outline_color 8c8c8c ##a6b38d
@@ -34,18 +35,24 @@ cpu_avg_samples 2
 net_avg_samples 2
 override_utf8_locale no
 
+#mpd
+mpd_host localhost
+mpd_port 6600
+
 #use_spacer no
 #maximum_width 1000
 #minimum_width 890
 
 TEXT
+${font openlogos:size=42}${color #1793d1}B $color$font
+
 ${font DejaVuSans:bold:size=8}${color #FFF500}${exec whoami}@${exec hostname}$font$color
 
 ${font DejaVuSans:size=8}${time %a, }${time %e %B %G} ${time %Z }${color }$font
 
 ${execi 60 python ~/scripts/conky/check-gmail.py <username> <password> 0} 
 ${font DejaVuSans:bold:size=8}Up Time:$font $uptime
-${font DejaVuSans:bold:size=8}Updates:$font ${execi 300 perl /home/lswest/scripts/conky/updates.pl} 
+${font DejaVuSans:bold:size=8}Updates:$font ${execi 300 /usr/bin/updateCheck} 
 
 ${font DejaVuSans:bold:size=8}Cpu: $font${cpu}% 
 ${font DejaVuSans:bold:size=8}Ram: $font $memperc%
@@ -54,6 +61,19 @@ ${font DejaVuSans:bold:size=8}Swap: $font $swapperc%
 ${font DejaVuSans:bold:size=8}Root:$font ${fs_free /} free
 ${font DejaVuSans:bold:size=8}Home$font ${fs_free /home} free
 ${font DejaVuSans:bold:size=8}Hyperion:$font ${fs_free /media/Hyperion/} free
+
+${iconv_start UTF-8 ISO_8859-1}
+${font DejaVuSans:bold:size=12}MUSIC ${font}${hr 2}
+${color slate grey}MPD Status: ${color}${alignr}${mpd_status}
+${if_mpd_playing}${font DejaVuSans:size=11}
+${execi 5 mpd-cover}
+${alignc}${image /tmp/cover -p 105,330 -s 50x50}
+${alignc}${mpd_artist}${font}
+${alignc}${mpd_title}
+
+${mpd_elapsed} ${alignc}${mpd_bar 10,140} ${alignr}${mpd_length}
+
+$endif
 
 ${font DejaVuSans:bold:size=8}To Do:$font
 ${execi 900 python /home/lswest/scripts/conky/TO\ DO.py}
