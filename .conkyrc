@@ -1,4 +1,4 @@
-imlib_cache_size 15
+imlib_cache_size 0
 background no
 use_xft yes
 xftfont DejaVuSans:size=8
