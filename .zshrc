@@ -6,10 +6,12 @@ zle -N self-insert url-quote-magic
 
 # prompt (if running screen, show window #)
 if [ x$WINDOW != x ]; then
-    # [5:lswest@lswest-laptop:~]% 
+    #┌─[5:lswest@lswest-netbook:~]-[15:21:07]
+    #└─>
     export PS1="%{$fg[white]%}┌─[%{$fg[cyan]%}$WINDOW%{$fg[white]%}:%{$fg[green]%}%n%{$fg[cyan]%}@%{$fg[green]%}%m%{$fg[white]%}:%{$fg[yellow]%}%~%{$fg[white]%}]%{$fg[yellow]%}-%{$fg[red]%}[%{$fg[cyan]%}%*%{$fg[red]%}]%{$reset_color%}%{$reset_color%}"$'\n'"%{$fg[white]%}└─>%{$reset_color%} "
 else
-    # [lswest@lswest-laptop:~]% 
+    #┌─[lswest@lswest-netbook:~]-[15:21:07]
+    #└─> 
     export PS1="%{$fg[white]%}┌─[%{$fg[green]%}%n%{$fg[cyan]%}@%{$fg[green]%}%m%{$fg[white]%}:%{$fg[yellow]%}%~%{$fg[white]%}]%{$fg[yellow]%}-%{$fg[red]%}[%{$fg[cyan]%}%*%{$fg[red]%}]%{$reset_color%}%{$reset_color%}"$'\n'"%{$fg[white]%}└─>%{$reset_color%} "
 fi
 export RPRMOPT="%{$reset_color%}"
@@ -61,6 +63,7 @@ compinit
 
 #alias
 alias ls="ls -la --classify --color=always"
+alias bb="bauerbill"
 
 ##Set some keybindings
 ###############################################
@@ -82,6 +85,7 @@ export LC_CTYPE="en_US.utf8"
 
 alias trayer="trayer --edge top  --expand true --widthtype request --height 28 --SetDockType true --transparent true --alpha 255 --align right"
 
+alias cdb="cd ~/.bin/"
 ##custom functions
 m4a(){
         if [[ "$1" != "" && "$#" == 2 ]]; then
@@ -112,7 +116,7 @@ fi
 flvmp3() {
       ffmpeg -i $1 -ar 44100 -ab 192k -ac 2 $2
 }
-export EDITOR="vim"
+
 export BROWSER="firefox"
 #Google from CLI
 # go to google for anything
@@ -125,9 +129,21 @@ google() {
 
   $BROWSER "$URL" &>/dev/null &
 }
+xkcd(){ 
+    local f=$(curl -s http://xkcd.com/);
+    display $(echo "$f"|grep -Po '(?<=")http://imgs.xkcd.com/comics/[^"]+(png|jpg)');
+    echo "$f"|awk '/<img src="http:\/\/imgs\.xkcd\.com\/comics\/.*?" title=.*/{gsub(/^.*title=.|".*?$/,"");print}';
+    }
 
+record_uptime() {
+    uptime > uptime_record.txt
+}
 
+alias rsync="rsync -ruh --progress"
 export OOO_FORCE_DESKTOP=gnome
 export DE=gnome
+export EDITOR=vim
+export VISUAL=vim
+export PATH="~/.bin:$PATH"
 #set up the mail environment variable
 MAIL=/var/spool/mail/lswest && export MAIL
