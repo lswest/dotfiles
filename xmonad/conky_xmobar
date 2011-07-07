@@ -1,7 +1,0 @@
-#!/bin/bash
-# Filename: ~/.xmonad/conkyscript
-conky -c ~/.conky_xmonad -i1 -q > ~/.xmonad/conkystat &
-sleep 4
-killall -q "conky -c ~/.conky_xmonad"
-echo `cat ~/.xmonad/conkystat`
-#rm ~/.xmonad/conkystat
