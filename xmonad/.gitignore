@@ -1,0 +1,5 @@
+*.hi
+*.errors
+*.o
+xmonad-*
+backups
