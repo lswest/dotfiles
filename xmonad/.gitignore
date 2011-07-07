@@ -3,4 +3,5 @@
 *.o
 xmonad-*
 backups
-conky*
+conkystat
+conky_xmobar
