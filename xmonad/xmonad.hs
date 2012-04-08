@@ -7,8 +7,11 @@ import XMonad.Actions.DwmPromote   -- swap master like dwm
 import XMonad.Hooks.DynamicLog     -- statusbar 
 import XMonad.Hooks.EwmhDesktops   -- fullscreenEventHook fixes chrome fullscreen
 import XMonad.Hooks.ManageDocks    -- dock/tray mgmt
+<<<<<<< HEAD
 import XMonad.Hooks.ManageHelpers  -- isFullscreen and doFullFloat
 import XMonad.Hooks.SetWMName --hopefully making matlab run
+=======
+>>>>>>> a7ecb387723b7359c61db5abf86650e0674b35f2
 import XMonad.Hooks.UrgencyHook    -- window alert bells 
 import XMonad.Layout.NoBorders     -- smart borders on solo clients
 import XMonad.Util.EZConfig        -- append key/mouse bindings
@@ -25,11 +28,17 @@ escapeColor :: String -> String
 escapeColor = wrap "'" "'"
 
 myFont = "'Togoshi Gothic:size=9'"
+<<<<<<< HEAD
 --myFgColor   = "#9c9c9c"
 --myBgColor   = "#0c0c0c"
 myFgColor = "#687CA4"
 myBgColor = "#0d111b"
 myFontColor = "#a7b9dc"
+=======
+myFgColor   = "#9c9c9c"
+myBgColor   = "#0c0c0c"
+myFontColor = "#ffffff"
+>>>>>>> a7ecb387723b7359c61db5abf86650e0674b35f2
 myHighlightColor = "#9F6B00"
 
 myPanelHeight = "18"
@@ -38,14 +47,23 @@ myPanelY      = "0"
 myMainPanelWidth  = "660"
 myConkyPanelWidth = "1040"
 
+<<<<<<< HEAD
 ppCurrentColor = dzenColor myHighlightColor "" 
+=======
+ppCurrentColor = dzenColor myHighlightColor "#0c0c0c" 
+>>>>>>> a7ecb387723b7359c61db5abf86650e0674b35f2
 ppVisibleColor = dzenColor myHighlightColor ""
 ppHiddenColor = dzenColor myFontColor ""
 ppHiddenNWColor = dzenColor myFgColor ""
 ppLayoutColor = dzenColor myFontColor ""
 ppTitleColor = dzenColor myFontColor ""
+<<<<<<< HEAD
 ppUrgentColor = dzenColor myBgColor myFgColor
 myLogHook = ewmhDesktopsLogHook >> setWMName "LG3D"
+=======
+ppUrgentColor = dzenColor "#ffffff" myFontColor
+myLogHook = ewmhDesktopsLogHook
+>>>>>>> a7ecb387723b7359c61db5abf86650e0674b35f2
 
 imagePath = "/home/lswest/.xmonad/images/"
 
@@ -64,7 +82,11 @@ statusBarCmd = "dzen2 "
              ++ " -ta l "
 
 --Conky dzen
+<<<<<<< HEAD
 secondBarCmd = "conky -c ~/.xmonad/.conkyrc_dwm_bar| dzen2 "
+=======
+secondBarCmd = "conky -c ~/.conkyrc_dwm_bar| dzen2 "
+>>>>>>> a7ecb387723b7359c61db5abf86650e0674b35f2
              ++ myDzenFlags
              ++ " -w " ++ myConkyPanelWidth
              ++ " -x " ++ myMainPanelWidth
@@ -99,7 +121,11 @@ myPP = dzenPP
                                 Nothing -> "1"
                                 Just n -> show (n+1)
       --wrapClickable expects a tuple in the form (<workspace index>, <text to display>)
+<<<<<<< HEAD
       wrapClickable (idx,str) = "^ca(1," ++ xdo index ++ ")" ++ "^ca(3," ++ xdo index ++ ")" ++ str ++ "^ca()^ca()"
+=======
+      wrapClickable (idx,str) = "^ca(1," ++ xdo "c;" ++ xdo index ++ ")" ++ "^ca(3," ++ xdo "e;" ++ xdo index ++ ")" ++ str ++ "^ca()^ca()"
+>>>>>>> a7ecb387723b7359c61db5abf86650e0674b35f2
         where
             index = currentWsIndex idx
             xdo key   = "xdotool key super+" ++ key
@@ -109,7 +135,11 @@ main :: IO ()
 main = do
     din <- spawnPipe statusBarCmd
     spawn secondBarCmd
+<<<<<<< HEAD
     xmonad (ewmh $ uhook $ defaultConfig { terminal = myTerminal
+=======
+    xmonad $ ewmh defaultConfig { terminal = myTerminal
+>>>>>>> a7ecb387723b7359c61db5abf86650e0674b35f2
                           , focusFollowsMouse  = myFocusFollowsMouse
                           , borderWidth        = myBorderWidth
                           , modMask            = myModMask
@@ -126,9 +156,15 @@ main = do
                           , manageHook         = myManageHook
                           , logHook = myLogHook >> (dynamicLogWithPP $ myPP { ppOutput = hPutStrLn din })
                         
+<<<<<<< HEAD
                         })
         where
             uhook = withUrgencyHook NoUrgencyHook
+=======
+                        }
+        --where
+            --uhook = withUrgencyHookC NoUrgencyHook urgentConfig
+>>>>>>> a7ecb387723b7359c61db5abf86650e0674b35f2
             -- Custom PP, configure it as you like. It determines what's being written to the bar.
             --myPP = xmobarPP { ppCurrent = xmobarColor "#9F6B00" "#0c0c0c"
             --                  , ppTitle = shorten 80
@@ -140,6 +176,10 @@ main = do
             --toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
           --  conf = uhook 
 
+<<<<<<< HEAD
+=======
+--urgentConfig = UrgencyConfig { suppressWhen = Focused, remindWhen = Dont } 
+>>>>>>> a7ecb387723b7359c61db5abf86650e0674b35f2
 -- yes, these are functions; just very simple ones
 -- that accept no input and return static values
 myTerminal    = "urxvt -e uim-fep"
@@ -170,6 +210,7 @@ myLayout = avoidStruts $ smartBorders ( tiled ||| mtiled ||| full )
 myManageHook = composeAll
     [ className =? "MPlayer"        --> doFloat
     , className =? "Gimp"           --> doFloat
+<<<<<<< HEAD
     , className =? "XCalc"          --> doFloat
     , className =? "Thunar"         --> doF (W.shift "文書")
     , className =? "VirtualBox"     --> doFloat
@@ -189,6 +230,19 @@ myManageHook = composeAll
     , resource  =? "desktop_window" --> doIgnore
     , resource  =? "kdesktop"       --> doIgnore 
     , (isFullscreen --> doFullFloat)
+=======
+    , className =? "Thunar"         --> doF (W.shift "文書")
+    , className =? "VirtualBox"     --> doFloat
+    , className =? "Skype"          --> doFloat <+> doF (W.shift "話")
+    , className =? "Pidgin"         --> doFloat <+> doF (W.shift "話")
+    , className =? "Google-chrome"  --> doF(W.shift "ウェブ")
+    , title =? "ncmpcpp"            --> doF(W.shift "音楽")
+    , title =? "Browser"            --> doFloat <+> doF(W.shift "ウエブ")
+    , title =? "Download"           --> doFloat <+> doF(W.shift "ウエブ")
+    , title =? "Navigator"          --> doF(W.shift "ウエブ")
+    , resource  =? "desktop_window" --> doIgnore
+    , resource  =? "kdesktop"       --> doIgnore 
+>>>>>>> a7ecb387723b7359c61db5abf86650e0674b35f2
     , manageDocks
     ]
 
@@ -213,7 +267,11 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
  
     [ ((modm,               xK_Return), spawn $ XMonad.terminal conf)   
     -- launch dmenu
+<<<<<<< HEAD
     , ((modm,               xK_p     ), spawn "exe=`dmenu_run -nb '#0d111b' -nf '#a7b9dc'` && eval \"exec $exe\"")
+=======
+    , ((modm,               xK_p     ), spawn "exe=`dmenu_path | dmenu` && eval \"exec $exe\"")
+>>>>>>> a7ecb387723b7359c61db5abf86650e0674b35f2
 
     ,((modm, xK_b     ), sendMessage ToggleStruts)
  
@@ -221,7 +279,11 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_p     ), spawn "gmrun")
 
     -- Lock screen
+<<<<<<< HEAD
     , ((modm,               xK_Escape   ), spawn "xscreensaver-command -lock")
+=======
+    , ((modm,               xK_F12   ), spawn "xscreensaver-command -lock")
+>>>>>>> a7ecb387723b7359c61db5abf86650e0674b35f2
     
     -- Thunar
     , ((modm,               xK_d   ), spawn "thunar")
@@ -235,9 +297,12 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Chrome 
     , ((modm,               xK_w   ), spawn "google-chrome")
  
+<<<<<<< HEAD
     -- Ncmpcpp 
     , ((modm,               xK_v   ), spawn "urxvt -name ncmpcpp -e ncmpcpp")
  
+=======
+>>>>>>> a7ecb387723b7359c61db5abf86650e0674b35f2
     --Screenshot
     , ((0 , xK_Print), spawn "screenshot")
  
@@ -339,12 +404,22 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [((m .|. modm, k), windows $ f i)
         | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
         , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
+<<<<<<< HEAD
+=======
+    ++
+>>>>>>> a7ecb387723b7359c61db5abf86650e0674b35f2
  
     --
     -- mod-{w,e,r}, Switch to physical/Xinerama screens 1, 2, or 3
     -- mod-shift-{w,e,r}, Move client to screen 1, 2, or 3
     --
+<<<<<<< HEAD
     --[((m .|. modm, key), screenWorkspace sc >>= flip whenJust (windows . f))
     --    | (key, sc) <- zip [xK_f, xK_e, xK_r] [0..]
     --    , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
+=======
+    [((m .|. modm, key), screenWorkspace sc >>= flip whenJust (windows . f))
+        | (key, sc) <- zip [xK_f, xK_e, xK_r] [0..]
+        , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
+>>>>>>> a7ecb387723b7359c61db5abf86650e0674b35f2
 

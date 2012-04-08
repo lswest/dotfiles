@@ -6,4 +6,8 @@ total_run_times 0
 use_spacer none
 
 TEXT
+<<<<<<< HEAD
 ${execi 1 /usr/bin/mpd-info} | Dropbox: ${execi 5 echo $(dropbox status)} | $memperc% ($mem) | Updates: ${execi 300 python ~/Dropbox/Scripts/conky/packages-short} | ${execi 60 python ~/Dropbox/Scripts/conky/gmail.py} Email(s) | ^fg(\#9F6B00)${execi 60 jDate}^fg()
+=======
+${execi 1 /usr/bin/mpd-info} | Dropbox: ${execi 5 echo $(dropbox status)} | $memperc% ($mem) | Updates: ${execi 300 python ~/Dropbox/Scripts/conky/packages-short} | ${execi 60 python ~/Dropbox/Scripts/conky/gmail.py} Email(s) | ${time %a %b %d %H:%M}
+>>>>>>> a7ecb387723b7359c61db5abf86650e0674b35f2

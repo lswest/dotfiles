@@ -1,0 +1,7 @@
+*.hi
+*.errors
+*.o
+xmonad-*
+backups
+conkystat
+conky_xmobar
