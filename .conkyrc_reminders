@@ -1,0 +1,49 @@
+background no
+use_xft yes 
+xftfont DejaVuSans:size=8
+out_to_console no
+
+xftalpha 0.9 
+update_interval 1.0 
+total_run_times 0
+double_buffer yes 
+
+own_window yes 
+own_window_transparent yes 
+own_window_type override
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+stippled_borders 0
+border_inner_margin 1
+border_width 1
+default_color ffffff ##0b093a
+default_outline_color 8c8c8c ##a6b38d
+
+alignment bottom_left 
+#gap_x 40
+#gap_y 29
+gap_x 5
+gap_y 0
+
+no_buffers yes 
+uppercase no
+cpu_avg_samples 2
+net_avg_samples 2
+override_utf8_locale yes
+
+lua_load ~/conky_testing/draw_bg.lua
+lua_draw_hook_pre draw_bg
+
+text_buffer_size 512
+
+TEXT
+${color ffffff}
+${iconv_start UTF-8 ISO_8859-1}${font DejaVuSans:bold:size=8}To Do:$font
+${execi 10 python /home/lswest/scripts/conky/TO\ DO.py}
+${iconv_stop}
+${font DejaVuSans:bold:size=8}To Buy:$font
+${execi 10 python /home/lswest/scripts/conky/To\ Buy.py}

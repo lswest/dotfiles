@@ -1,43 +1,86 @@
-URxvt.perl-ext-common: default,matcher
-URxvt.urlLauncher: firefox
-URxvt.matcher.button: 1
-urxvt*termName: rxvt-unicode
-urxvt*internalBorder:   1
-urxvt*loginShell: true
-urxvt*background:  rgba:0000/0000/0000/cccc
-urxvt*background: [70]#000000
-urxvt*foreground:  white
-urxvt*transparent: 1
-urxvt*colorMode: on
-urxvt*cursorBlink: 0
-urxvt*depth:	32
-urxvt*color0:      #000000
-urxvt*color1:      #9e1828
-urxvt*color2:      #aece92
-urxvt*color3:      #968a38
-urxvt*color4:      #414171
-urxvt*color5:      #963c59
-urxvt*color6:      #418179
-urxvt*color7:      #bebebe
-urxvt*color8:      #666666
-urxvt*color9:      #cf6171
-urxvt*color10:     #c5f779
-urxvt*color11:     #fff796
-urxvt*color12:     #4186be
-urxvt*color13:     #cf9ebe
-urxvt*color14:     #71bebe
-urxvt*color15:     #ffffff
-urxvt*fading:    40
-urxvt*tintColor: white
-urxvt*shading:   0
-urxvt*inheritPixmap: 0
-urxvt*scrollBar: 0
-urxvt*geometry: 81x22
-urxvt*saveLines:1000
-urxvt*font: xft:DejaVu Sans Mono:pixelsize=11:antialias=true:hinting=true
-urxvt*boldFont: xft:DejaVu Sans Mono:pixelsize=11:antialias=true:bold:hinting=true
-urxvt*italicFont: xft:DejaVu Sans Mono:pixelsize=11:antialias=true:italic:autohint=true:hinting=true
-urxvt*bolditalicFont: xft:DejaVu Sans Mono:pixelsize=11:antialias=true:bold:italic:autohint=true:hinting=true
+! Colours ----------------------------------
 
+*fading:                40
+*fadeColor:             #002b36
+*cursorColor:           #93a1a1
+*pointerColorBackground:#586e75
+*pointerColorForeground:#93a1a1
+
+*background: #0d111b
+*foreground: #a7b9dc
+
+!black
+*color0:     #4a271c
+*color8:     #92635c
+
+!red
+*color1:     #d45923
+*color9:     #d6845f
+
+!green
+*color2:     #9bad2c
+*color10:    #cbca57
+
+!yellow
+*color3:     #e29129
+*color11:    #d1ae6f
+
+!!blue
+*color4: #35679a
+*color12: #0387db
+
+!cyan
+*color5:     #6d3220
+*color13:    #95543f
+
+!magenta
+*color6:     #3f5d57
+*color14:    #7ba3a5
+
+!white
+*color7:     #5d5555
+*color15:    #cdaeae
+
+!--URxvt
+URxvt.fading:    30
+URxvt.shading:   80
+URxvt.scrollBar: 0
+URxvt.geometry: 81x22
+URxvt.saveLines:1000
+URxvt.inputMethod: none 
+URxvt.preeditType: OnTheSpot,None
+URxvt.imLocale: ja_JP.UTF-8
+URxvt.perl-ext-common: default,matcher
+URxvt.urlLauncher: google-chrome 
+URxvt.matcher.button: 1
+URxvt.font:  xft:Anonymous Pro for Powerline:size=11:antialias=true:autohint=false,xft:IPAGothic:size=11:antialias=true
+URxvt.boldFont:  xft:Anonymous Pro for Powerline:size=11:weight=Bold:antialias=true:autohint=false,xft:IPAGothic:size=11:weight=Bold:antialias=true
+URxvt.termName: rxvt-unicode
+URxvt.internalBorder:   0
+URxvt.loginShell: true
+!URxvt.background: [60]#0d111b
+!URxvt.background: [70]#000000
+URxvt.transparent: true 
+URxvt.colorMode: on
+URxvt.cursorBlink: 0
+URxvt.depth:    32
+
+!--Cursor
 Xcursor.theme: Vanilla-DMZ-AA
 Xcursor.size: 16
+
+!-- XTerm
+XTerm*faceName: anonymouspro:pixelsize=14
+XTerm*utf8: 2
+XTerm*dynamicColors: true
+XTerm*eightBitInput: true
+XTerm*saveLines: 512
+XTerm*scrollTtyKeypress: true
+XTerm*scrollTtyOutput: false
+XTerm*scrollBar: false
+XTerm*rightScrollBar: false
+XTerm*jumpScroll: true
+XTerm*multiScroll: true
+XTerm*toolBar: false
+XTerm*loginShell:true
+XTerm*scrollKey:true

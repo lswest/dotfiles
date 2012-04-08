@@ -2,6 +2,7 @@ imlib_cache_size 0
 background no
 use_xft yes
 xftfont DejaVuSans:size=8
+out_to_console no
 
 xftalpha 0.9
 update_interval 1.0
@@ -43,40 +44,27 @@ mpd_port 6600
 #maximum_width 1000
 #minimum_width 890
 
+lua_load ~/conky_testing/draw_bg.lua
+lua_draw_hook_pre draw_bg
+
 TEXT
-${font openlogos:size=42}${color #1793d1}B $color$font
+${font openlogos:size=42}${color 1793d1}$alignc B $color$font
 
-${font DejaVuSans:bold:size=8}${color #FFF500}${exec whoami}@${exec hostname}$font$color
+${font DejaVuSans:bold:size=8}${color FFF500}${exec whoami}@${exec hostname}$font$color
 
-${font DejaVuSans:size=8}${time %a, }${time %e %B %G} ${time %Z }${color }$font
+$color${font DejaVuSans:size=8}${time %a, }${time %e %B %Y} $font
 
-${execi 60 python ~/scripts/conky/check-gmail.py <username> <password> 0} 
+${font DejaVuSans:bold:size=8}Emails: $font${execi 60 python ~/Dropbox/Scripts/conky/gmail.py} 
 ${font DejaVuSans:bold:size=8}Up Time:$font $uptime
-${font DejaVuSans:bold:size=8}Updates:$font ${execi 300 /usr/bin/updateCheck} 
+${font DejaVuSans:bold:size=8}Updates:$font ${execi 300 python /usr/bin/updateCheck} 
 
-${font DejaVuSans:bold:size=8}Cpu: $font${cpu}% 
+${font DejaVuSans:bold:size=8}Core 1: $font${cpu cpu1}% 
+${font DejaVuSans:bold:size=8}Core 2: $font${cpu cpu2}% 
+${font DejaVuSans:bold:size=8}Core 3: $font${cpu cpu3}% 
+${font DejaVuSans:bold:size=8}Core 4: $font${cpu cpu4}% 
 ${font DejaVuSans:bold:size=8}Ram: $font $memperc%
 ${font DejaVuSans:bold:size=8}Swap: $font $swapperc%
 
 ${font DejaVuSans:bold:size=8}Root:$font ${fs_free /} free
 ${font DejaVuSans:bold:size=8}Home$font ${fs_free /home} free
-${font DejaVuSans:bold:size=8}Hyperion:$font ${fs_free /media/Hyperion/} free
-
-${iconv_start UTF-8 ISO_8859-1}
-${font DejaVuSans:bold:size=12}MUSIC ${font}${hr 2}
-${color slate grey}MPD Status: ${color}${alignr}${mpd_status}
-${if_mpd_playing}${font DejaVuSans:size=11}
-${execi 5 mpd-cover}
-${alignc}${image /tmp/cover -p 105,330 -s 50x50}
-${alignc}${mpd_artist}${font}
-${alignc}${mpd_title}
-
-${mpd_elapsed} ${alignc}${mpd_bar 10,140} ${alignr}${mpd_length}
-
-$endif
-
-${font DejaVuSans:bold:size=8}To Do:$font
-${execi 900 python /home/lswest/scripts/conky/TO\ DO.py}
-
-${font DejaVuSans:bold:size=8}To Buy:$font
-${execi 900 python /home/lswest/scripts/conky/To\ Buy.py}
+${font DejaVuSans:bold:size=8}Hyperion:$font ${fs_free /media/Media/} free
