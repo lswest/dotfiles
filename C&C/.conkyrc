@@ -1,0 +1,70 @@
+imlib_cache_size 0
+background no
+use_xft yes
+xftfont DejaVuSans:size=8
+out_to_console no
+
+xftalpha 0.9
+update_interval 1.0
+total_run_times 0
+double_buffer yes
+
+own_window yes
+own_window_transparent yes
+own_window_type override
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+stippled_borders 0
+border_inner_margin 1
+border_width 1
+default_color ffffff ##0b093a
+default_outline_color 8c8c8c ##a6b38d
+
+alignment top_right
+#gap_x 40
+#gap_y 29
+gap_x 5
+gap_y 60
+
+no_buffers yes
+uppercase no
+cpu_avg_samples 2
+net_avg_samples 2
+override_utf8_locale no
+
+#mpd
+mpd_host localhost
+mpd_port 6600
+
+#use_spacer no
+#maximum_width 1000
+#minimum_width 890
+
+lua_load ~/conky_testing/draw_bg.lua
+lua_draw_hook_pre draw_bg
+
+TEXT
+${font openlogos:size=42}${color 1793d1}$alignc B $color$font
+
+${font DejaVuSans:bold:size=8}${color FFF500}${exec whoami}@${exec hostname}$font$color
+
+$color${font DejaVuSans:size=8}${time %a, }${time %e %B %Y} $font
+
+${font DejaVuSans:bold:size=8}Emails: $font${execi 60 python ~/Dropbox/Scripts/conky/gmail.py} 
+${font DejaVuSans:bold:size=8}Up Time:$font $uptime
+${font DejaVuSans:bold:size=8}Updates:$font ${execi 300 python /usr/bin/updateCheck} 
+
+${font DejaVuSans:bold:size=8}Core 1: $font${cpu cpu1}% 
+${font DejaVuSans:bold:size=8}Core 2: $font${cpu cpu2}% 
+${font DejaVuSans:bold:size=8}Core 3: $font${cpu cpu3}% 
+${font DejaVuSans:bold:size=8}Core 4: $font${cpu cpu4}% 
+${font DejaVuSans:bold:size=8}Ram: $font $memperc%
+${font DejaVuSans:bold:size=8}Swap: $font $swapperc%
+
+${font DejaVuSans:bold:size=8}Root:$font ${fs_free /} free
+${font DejaVuSans:bold:size=8}Home$font ${fs_free /home} free
+${font DejaVuSans:bold:size=8}Hyperion:$font ${fs_free /media/Media/} free

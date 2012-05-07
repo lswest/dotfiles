@@ -1,0 +1,71 @@
+# -- Conky settings -- #
+background no
+update_interval 1
+
+cpu_avg_samples 2
+net_avg_samples 2
+
+override_utf8_locale yes
+
+double_buffer yes
+no_buffers yes
+
+text_buffer_size 2048
+imlib_cache_size 0
+
+# -- Window specifications -- #
+
+own_window yes
+own_window_type override
+own_window_transparent yes
+own_window_hints undecorate,sticky,skip_taskbar,skip_pager,below
+
+border_inner_margin 0
+border_outer_margin 0
+
+minimum_size 350 180
+maximum_width 400
+
+alignment top_left
+gap_x 5
+gap_y 30
+
+# -- Graphics settings -- #
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+
+# -- Text settings -- #
+use_xft yes
+xftfont sans:size=12
+xftalpha 0.8
+
+uppercase no
+
+default_color ffffff
+
+mpd_host localhost
+mpd_port 6600
+
+# -- Lua Load -- #
+lua_load /home/lswest/Dropbox/conky_testing/ring-mpd.lua
+lua_draw_hook_pre ring_stats
+
+TEXT
+${color ffffff}
+${lua my_flag 0}
+${if_mpd_playing}
+${lua my_flag 1}
+${execi 2 /usr/bin/mpd-cover}
+${image /tmp/cover -p 40,58 -s 60x60 -u 15}
+${if_match "${mpd_status}" == "Paused"}
+${voffset -80}
+${offset 137}${font DejaVuSans:bold:size=10}Paused
+$endif
+${if_match "${mpd_status}" == "Playing"}
+${voffset -80}
+${offset 137}${font DejaVuSans:bold:size=10}${mpd_artist}
+${offset 137}${font TogoshiGothic:size=10}${scroll 38 ${mpd_title}}$font
+$endif
+$endif

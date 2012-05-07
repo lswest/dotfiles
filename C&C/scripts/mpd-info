@@ -1,0 +1,7 @@
+state=`mpc|grep "^\["|cut --delimiter=" " -f 1|sed "s/\[//"|sed "s/\]//"`
+
+if [[ "$state" == "playing" ]]; then
+    echo $(mpc|head -1);
+else
+    echo "$state";
+fi
